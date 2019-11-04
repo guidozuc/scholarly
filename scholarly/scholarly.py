@@ -330,7 +330,7 @@ def search_venue_query(venue):
     soup = _get_soup(_HOST+url)
     return _search_scholar_soup(soup)
     
-    def search_venuedaterange_query(venue, ylo, yhi):
+def search_venuedaterange_query(venue, ylo, yhi):
     """Search by scholar venue and date ranhe and return a generator of Publication objects"""
     url = _VENUEDATERANGESEARCH.format(requests.utils.quote(venue, ylo, yhi))
     soup = _get_soup(_HOST+url)
