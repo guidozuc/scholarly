@@ -29,6 +29,9 @@ _CITATIONPUB = '/citations?view_op=view_citation&citation_for_view={0}'
 _KEYWORDSEARCH = '/citations?view_op=search_authors&hl=en&mauthors=label:{0}'
 _PUBSEARCH = '/scholar?q={0}'
 _SCHOLARPUB = '/scholar?oi=bibs&hl=en&cites={0}'
+_VENUESEARCH = '/scholar?as_q=&as_publication={0}'
+_VENUEDATERANGESEARCH = '/scholar?as_q=&as_publication={0}&as_ylo={1}&as_yhi={2}'
+
 
 _CITATIONAUTHRE = r'user=([\w-]*)'
 _CITATIONPUBRE = r'citation_for_view=([\w-]*:[\w-]*)'
@@ -320,6 +323,18 @@ def search_pubs_query(query):
     soup = _get_soup(_HOST+url)
     return _search_scholar_soup(soup)
 
+
+def search_venue_query(venue):
+    """Search by scholar venue and return a generator of Publication objects"""
+    url = _VENUESEARCH.format(requests.utils.quote(venue))
+    soup = _get_soup(_HOST+url)
+    return _search_scholar_soup(soup)
+    
+    def search_venuedaterange_query(venue, ylo, yhi):
+    """Search by scholar venue and date ranhe and return a generator of Publication objects"""
+    url = _VENUEDATERANGESEARCH.format(requests.utils.quote(venue, ylo, yhi))
+    soup = _get_soup(_HOST+url)
+    return _search_scholar_soup(soup)
 
 def search_author(name):
     """Search by author name and return a generator of Author objects"""
