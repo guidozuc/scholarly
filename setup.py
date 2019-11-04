@@ -15,9 +15,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     license='Unlicense',
 
-    url = 'https://github.com/OrganicIrradiation/scholarly',
+    url = 'https://github.com/guidozuc/scholarly',
     packages=setuptools.find_packages(),
-    download_url = 'https://github.com/OrganicIrradiation/scholarly/tarball/v0.2.5',
+    download_url = 'https://github.com/guidozuc/scholarly/tarball/v0.2.5',
     keywords = ['Google Scholar', 'academics', 'citations'],
     classifiers = [
         'Development Status :: 3 - Alpha',
